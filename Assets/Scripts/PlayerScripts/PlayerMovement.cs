@@ -47,9 +47,9 @@ public class PlayerMovement : MonoBehaviour
             dir /= 1.5f;
         }
 
-        rb2d.velocity = new Vector2(Mathf.Lerp(rb2d.velocity.x, dir.x * speed, 0.05f), Mathf.Lerp(rb2d.velocity.y, dir.y * speed, 0.05f));
+        rb2d.velocity = new Vector2(Mathf.Lerp(rb2d.velocity.x, dir.x * speed, 0.1f), Mathf.Lerp(rb2d.velocity.y, dir.y * speed, 0.1f));
     }
-    void Update()
+    void FixedUpdate()
     {
         MovePlayer();
     }
