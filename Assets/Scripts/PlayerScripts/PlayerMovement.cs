@@ -41,12 +41,13 @@ public class PlayerMovement : MonoBehaviour
             dir.y = -1;
         }
         
+        //jos kahta näppäintä painetaan niin nopeus säädetään sen mukaisesti
         if (dir.magnitude > 1)
         {
-            dir /= 2;
+            dir /= 1.5f;
         }
 
-        rb2d.velocity = dir * speed;
+        rb2d.velocity = new Vector2(Mathf.Lerp(rb2d.velocity.x, dir.x * speed, 0.05f), Mathf.Lerp(rb2d.velocity.y, dir.y * speed, 0.05f));
     }
     void Update()
     {
