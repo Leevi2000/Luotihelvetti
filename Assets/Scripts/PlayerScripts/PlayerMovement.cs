@@ -22,31 +22,29 @@ public class PlayerMovement : MonoBehaviour
 
         //suunta oikealle
         if (inputHandler.IsRightPressed() && !inputHandler.IsLeftPressed())
-        {
             dir.x = 1;
-        }
+
         //suunta vasemmalle
         if (inputHandler.IsLeftPressed() && !inputHandler.IsRightPressed())
-        {
             dir.x = -1;
-        }
+
         //suunta ylös
         if (inputHandler.IsForwardPressed() && !inputHandler.IsBackwardPressed())
-        {
             dir.y = 1;
-        }
+
         //suunta alas
         if (inputHandler.IsBackwardPressed() && !inputHandler.IsForwardPressed())
-        {
             dir.y = -1;
-        }
-        
-        //jos kahta näppäintä painetaan niin nopeus säädetään sen mukaisesti
-        if (dir.magnitude > 1)
-        {
-            dir /= 1.5f;
-        }
 
+        //jos kahta näppäintä painetaan, nopeus säädetään sen mukaisesti
+        if (dir.magnitude > 1)
+            dir /= 1.5f;
+        
+        //hidastaa nopeuden, jos Focus-nappia painetaan
+        if(inputHandler.IsFocusPressed())
+            dir /= 2;
+
+        
         rb2d.velocity = new Vector2(Mathf.Lerp(rb2d.velocity.x, dir.x * speed, 0.1f), Mathf.Lerp(rb2d.velocity.y, dir.y * speed, 0.1f));
     }
     void FixedUpdate()
