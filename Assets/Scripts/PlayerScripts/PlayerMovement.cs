@@ -6,7 +6,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed;
-
+    [SerializeField] float dashCooldown;
+    [SerializeField] float dashPower;
+    public bool hasDashed;
     GameObject GameManager;
     InputHandler inputHandler;
     Rigidbody2D rb2d;
@@ -44,11 +46,22 @@ public class PlayerMovement : MonoBehaviour
         if(inputHandler.IsFocusPressed())
             dir /= 2;
 
+        if (inputHandler.IsDashPressed() && !hasDashed && dir.magnitude > 0)
+        {
+            hasDashed = true;
+            Invoke("ResetDashCooldown", dashCooldown);
+            rb2d.velocity = dir * speed * dashPower;
+        }
+
         
         rb2d.velocity = new Vector2(Mathf.Lerp(rb2d.velocity.x, dir.x * speed, 0.1f), Mathf.Lerp(rb2d.velocity.y, dir.y * speed, 0.1f));
     }
     void FixedUpdate()
     {
         MovePlayer();
+    }
+    private void ResetDashCooldown()
+    {
+        hasDashed = false;
     }
 }

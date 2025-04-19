@@ -12,5 +12,6 @@ public class InputHandler : MonoBehaviour
     public bool IsRightPressed() => Input.GetKey(keybinds.Player_right);
     public bool IsShootPressed() => Input.GetKey(keybinds.Player_shoot);
     public bool IsFocusPressed() => Input.GetKey(keybinds.Player_focus);
+    public bool IsDashPressed() => Input.GetKey(keybinds.Player_dash);
 
 }
