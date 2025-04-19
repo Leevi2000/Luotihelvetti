@@ -1,13 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
-
-//[System.Serializable]
-//public class MovementActionEvent : UnityEvent { }
-
 public enum MovementActionType
 {
     InstantRotateTowardsPlayer
@@ -25,22 +17,16 @@ public class ProjectileMovement : MonoBehaviour
 
     public GameObject targetObj;
 
-    //[SerializeField]
-    //private List<MovementActionEvent> actionEvents;
     [SerializeField]
     private List<MovementEvent> events;
-    //Dictionary<MovementEvent, List<MovementActionEvent>> events;
-    
 
     private bool movementLock = false;
 
-    void Update()
+    void FixedUpdate()
     {
         CheckEvents();
         MoveForward();
         BasicRotation();
-
-        InstantRotateTowardsPlayer();
     }
 
     private void MoveForward()
@@ -53,7 +39,6 @@ public class ProjectileMovement : MonoBehaviour
         Vector3 localOffset = transform.right * verticalOffset;
 
         transform.position += forwardMovement + localOffset * Time.deltaTime;
-
     }
 
     private void BasicRotation()
@@ -77,7 +62,6 @@ public class ProjectileMovement : MonoBehaviour
         float targetZRotation = Mathf.Atan2(deltaY, deltaX) * Mathf.Rad2Deg + rotationOffset;
 
         transform.rotation = Quaternion.Euler(0f, 0f, targetZRotation);
-
     }
 
     private void CalculateDeltaCoordinates(Transform current, Transform target, out float deltaX, out float deltaY)
@@ -92,7 +76,10 @@ public class ProjectileMovement : MonoBehaviour
         {
             ev.ProcessEvent();
             if (ev.runMethods)
+            {
                 ExecuteEvents(ev.methodsToRun);
+                ev.runMethods = false;
+            }    
         }
     }
 
@@ -111,6 +98,4 @@ public class ProjectileMovement : MonoBehaviour
                 break;
         }
     }
-    
-
 }

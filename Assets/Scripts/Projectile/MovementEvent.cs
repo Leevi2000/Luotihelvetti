@@ -9,11 +9,9 @@ using UnityEngine.Events;
 public class MovementEvent
 {
     public float timer_max;
-    float timer;
+    private float timer;
     int eventQuantity = -1;
     public bool runMethods;
-    //[SerializeField]
-    //List<MovementActionEvent> methodsToRun;
     [SerializeField]
     public List<MovementActionType> methodsToRun = new List<MovementActionType>();
     public void ProcessEvent()
@@ -44,18 +42,8 @@ public class MovementEvent
 
     void DecreaseQuantity()
     {
-        if (eventQuantity != -1)
+        if (eventQuantity != -1 || eventQuantity != 0)
             eventQuantity--;
-    }
-
-    bool RunMethods()
-    {
-        //foreach (var method in methodsToRun) 
-        //{
-        //    //method?.Invoke();
-            
-        //}
-        return true;
     }
 
     bool ResetTimer()
@@ -63,5 +51,4 @@ public class MovementEvent
         timer = timer_max;
         return true;
     }
-
 }
