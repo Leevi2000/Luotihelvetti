@@ -364,6 +364,7 @@ GameObject:
   - component: {fileID: 680748205}
   - component: {fileID: 680748204}
   - component: {fileID: 680748203}
+  - component: {fileID: 680748207}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -384,6 +385,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+  dashCooldown: 2
+  dashPower: 4
+  hasDashed: 0
 --- !u!50 &680748204
 Rigidbody2D:
   serializedVersion: 4
@@ -447,6 +451,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &680748207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680748202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57390d218fa248445b0a9c688bd34754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KnockbackForce: 0
+  StunTime: 0
 --- !u!1 &1877493928
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,6 +475,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1877493929}
   - component: {fileID: 1877493930}
+  - component: {fileID: 1877493931}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -531,6 +550,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1877493931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877493928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57390d218fa248445b0a9c688bd34754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KnockbackForce: 15
+  StunTime: 0.75
 --- !u!1 &1904619794
 GameObject:
   m_ObjectHideFlags: 0

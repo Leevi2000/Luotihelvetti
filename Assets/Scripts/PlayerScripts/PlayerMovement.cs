@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] public float speed;
     [SerializeField] float dashCooldown;
     [SerializeField] float dashPower;
     public bool hasDashed;
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         if(inputHandler.IsFocusPressed())
             dir /= 2;
 
-        if (inputHandler.IsDashPressed() && !hasDashed && dir.magnitude > 0)
+        if (inputHandler.IsDashPressed() && !hasDashed && dir.magnitude > 0 && speed > 0)
         {
             hasDashed = true;
             Invoke("ResetDashCooldown", dashCooldown);
