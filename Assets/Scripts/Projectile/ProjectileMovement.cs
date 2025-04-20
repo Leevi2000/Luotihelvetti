@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -69,6 +70,13 @@ public class ProjectileMovement : MonoBehaviour
 
         float deltaX, deltaY;
         eventActions.CalculateDeltaCoordinates(gameObject.transform, targetObj.transform, out deltaX, out deltaY);
+        float targetZRotation = Mathf.Atan2(deltaY, deltaX) * Mathf.Rad2Deg + rotationOffset;
+        int direction = eventActions.CalculateRotateDirection(gameObject.transform.eulerAngles.z, targetZRotation);
+
+        float speedMultiplier = (100)/(Mathf.Pow(Vector2.Distance(gameObject.transform.position, targetObj.transform.position) * (forwardSpeed/2), 8/7));
+        gameObject.transform.Rotate(0f, 0f, direction * speedMultiplier * Time.fixedDeltaTime);
+
+
         return false;
     }
 

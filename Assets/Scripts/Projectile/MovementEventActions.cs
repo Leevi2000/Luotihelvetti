@@ -83,7 +83,7 @@ public class MovementEventActions
 
     private bool FacingTowardsTarget(float currentZRotation, float targetZRotation)
     {
-        float accuracy = 2f;
+        float accuracy = 10f;
 
         float deltaDegrees = CalculateDeltaDegrees(currentZRotation, targetZRotation);
 
