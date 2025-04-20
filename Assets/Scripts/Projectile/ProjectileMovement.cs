@@ -1,5 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Enums contain set of possible actions events can have
+/// </summary>
 public enum MovementActionType
 {
     InstantRotateTowardsPlayer
@@ -19,14 +23,23 @@ public class ProjectileMovement : MonoBehaviour
 
     [SerializeField]
     private List<MovementEvent> events;
+    MovementEventActions eventActions = new MovementEventActions();
 
     private bool movementLock = false;
 
+    private void Start()
+    {
+        if (targetObj == null)
+            targetObj = GameObject.FindGameObjectWithTag("Player");
+    }
+
     void FixedUpdate()
     {
-        CheckEvents();
-        MoveForward();
-        BasicRotation();
+        if (!CheckEvents())
+        {
+            MoveForward();
+            BasicRotation();
+        }
     }
 
     private void MoveForward()
@@ -46,55 +59,40 @@ public class ProjectileMovement : MonoBehaviour
         transform.Rotate(0, 0, basicRotationSpeed * Time.deltaTime);
     }
 
-    public void InstantRotateTowardsPlayer()
+    private bool CheckEvents()
     {
-        if (targetObj == null)
-        {
-            Debug.Log("Couldn't rotate projectile towards target object. Object not set");
-            return;
-        }
-
-        float rotationOffset = -270;
-
-        float deltaX, deltaY;
-        CalculateDeltaCoordinates(transform, targetObj.transform, out deltaX, out deltaY);
-
-        float targetZRotation = Mathf.Atan2(deltaY, deltaX) * Mathf.Rad2Deg + rotationOffset;
-
-        transform.rotation = Quaternion.Euler(0f, 0f, targetZRotation);
-    }
-
-    private void CalculateDeltaCoordinates(Transform current, Transform target, out float deltaX, out float deltaY)
-    {
-        deltaX = current.position.x - target.position.x;
-        deltaY = current.position.y - target.position.y;
-    }
-
-    private void CheckEvents()
-    {
+        bool eventsRunning = false;
         foreach (var ev in events)
         {
             ev.ProcessEvent();
             if (ev.runMethods)
             {
-                ExecuteEvents(ev.methodsToRun);
-                ev.runMethods = false;
+                ExecuteEvents(ev.methodsToRun, out ev.runMethods);
+                eventsRunning = true;
             }    
+        }
+        return eventsRunning;
+    }
+
+    private void ExecuteEvents(List<MovementActionType> actionTypes, out bool notAllEventsCompleted)
+    {
+        notAllEventsCompleted = false;
+        bool eventFinished = true;
+        foreach (var actionType in actionTypes)
+        {
+            ExecuteEvent(actionType, out eventFinished);
+            if (!eventFinished)
+                notAllEventsCompleted = true;
         }
     }
 
-    private void ExecuteEvents(List<MovementActionType> actionTypes)
+    private void ExecuteEvent(MovementActionType actionType, out bool completed)
     {
-        foreach (var actionType in actionTypes)
-            ExecuteEvent(actionType);
-    }
-
-    private void ExecuteEvent(MovementActionType actionType)
-    {
+        completed = false;
         switch (actionType)
         {
             case MovementActionType.InstantRotateTowardsPlayer:
-                InstantRotateTowardsPlayer();
+                completed = eventActions.InstantRotateTowardsPlayer(this.gameObject, targetObj);
                 break;
         }
     }
