@@ -16,6 +16,7 @@ public class ProjectileMovement : MonoBehaviour
     public float frequency = 2f;
     public float amplitude = 0.5f;
     public float basicRotationSpeed = 0f;
+    public bool homing = false;
 
     private float time = 0f;
 
@@ -24,8 +25,6 @@ public class ProjectileMovement : MonoBehaviour
     [SerializeField]
     private List<MovementEvent> events;
     MovementEventActions eventActions = new MovementEventActions();
-
-    private bool movementLock = false;
 
     private void Start()
     {
@@ -56,7 +55,21 @@ public class ProjectileMovement : MonoBehaviour
 
     private void BasicRotation()
     {
-        transform.Rotate(0, 0, basicRotationSpeed * Time.deltaTime);
+        if(homing)
+        {
+            HomeTowardsTarget();
+        }
+        else
+            transform.Rotate(0, 0, basicRotationSpeed * Time.deltaTime);
+    }
+
+    private bool HomeTowardsTarget()
+    {
+        float rotationOffset = -270;
+
+        float deltaX, deltaY;
+        eventActions.CalculateDeltaCoordinates(gameObject.transform, targetObj.transform, out deltaX, out deltaY);
+        return false;
     }
 
     private bool CheckEvents()

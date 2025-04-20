@@ -34,13 +34,19 @@ public class MovementEventActions
         if (FacingTowardsTarget(objectToRotate.transform.eulerAngles.z, targetZRotation))
             return true;
 
-        //objectToRotate.transform.rotation *= Quaternion.Euler(0f, 0f, direction * smoothedRotationSpeed);
-
         float speedMultiplier = Mathf.Abs(CalculateDeltaDegrees(objectToRotate.transform.eulerAngles.z, targetZRotation));
         objectToRotate.transform.Rotate(0f, 0f, direction * smoothedRotationSpeed * speedMultiplier * Time.fixedDeltaTime);
 
         return false;
     }
+
+   
+
+    public bool SetHoming()
+    {
+        return false;
+    }
+
 
     /// <summary>
     /// Returns 1 for clockwise rotation and -1 for counterclockwise.
@@ -48,16 +54,16 @@ public class MovementEventActions
     /// <param name="currentZRotation"></param>
     /// <param name="targetZRotation"></param>
     /// <returns></returns>
-    private int CalculateRotateDirection(float currentZRotation, float targetZRotation)
+    public int CalculateRotateDirection(float currentZRotation, float targetZRotation)
     {
-        float deltaDegrees = CalculateDeltaDegrees(currentZRotation, targetZRotation);
+        float deltaDegrees = NormalizeToSignedDegrees(targetZRotation - currentZRotation);
         if (deltaDegrees >= 0)
             return 1;
         else
             return -1;
     }
 
-    private float CalculateDeltaDegrees(float currentZRotation, float targetZRotation, bool clockwise = true)
+    public float CalculateDeltaDegrees(float currentZRotation, float targetZRotation, bool clockwise = true)
     {
         float delta = NormalizeToSignedDegrees(targetZRotation - currentZRotation);
         return Mathf.Abs(delta);
@@ -69,7 +75,7 @@ public class MovementEventActions
         if (result < 0) result += 360;
         return result - 180;
     }
-    private void CalculateDeltaCoordinates(Transform current, Transform target, out float deltaX, out float deltaY)
+    public void CalculateDeltaCoordinates(Transform current, Transform target, out float deltaX, out float deltaY)
     {
         deltaX = current.position.x - target.position.x;
         deltaY = current.position.y - target.position.y;
