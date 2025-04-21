@@ -29,7 +29,7 @@ namespace Projectile
             public ModulatorProperties waveProperties;
         }
 
-        private float ModulatorValueAt(ModulatorEntry modulator, float time)
+        private static float ModulatorValueAt(ModulatorEntry modulator, float time)
         {
             var wave = modulator.waveProperties;
             if (modulator.modulationType == FunctionType.Sin)
@@ -41,7 +41,7 @@ namespace Projectile
             return 0;
         }
 
-        public float SumOfModulatorValuesAt(List<ModulatorEntry> modulators, float time)
+        public static float SumOfModulatorValuesAt(List<ModulatorEntry> modulators, float time)
         {
             float total = 0;
             foreach (var modulator in modulators) 

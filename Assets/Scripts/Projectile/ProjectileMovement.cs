@@ -43,6 +43,7 @@ namespace Projectile
 
         void FixedUpdate()
         {
+            UpdateTime();
             if (!CheckEvents())
             {
                 MoveForward();
@@ -50,10 +51,12 @@ namespace Projectile
             }
         }
 
-        private void MoveForward()
+        private void UpdateTime()
         {
             time += Time.deltaTime;
-
+        }
+        private void MoveForward()
+        {
             Vector3 forwardMovement = transform.up * forwardSpeed * Time.deltaTime;
 
             float verticalOffset = Mathf.Sin(time * frequency) * amplitude;
@@ -67,9 +70,21 @@ namespace Projectile
             if (homing)
             {
                 HomeTowardsTarget();
+                ApplyRotation();
             }
             else
-                transform.Rotate(0, 0, basicRotationSpeed * Time.deltaTime);
+                ApplyRotation();
+        }
+
+        private void ApplyRotation()
+        {
+            float rotationModifier = 1;
+            if (modulatorFunctionsList.Count > 0)
+            {
+                rotationModifier = Modulator.SumOfModulatorValuesAt(modulatorFunctionsList, time);
+            }
+
+            transform.Rotate(0, 0, basicRotationSpeed * rotationModifier * Time.deltaTime);
         }
 
         private bool HomeTowardsTarget()
