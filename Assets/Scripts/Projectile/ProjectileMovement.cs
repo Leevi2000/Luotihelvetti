@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 /// <summary>
 /// Enums contain set of possible actions events can have
@@ -9,6 +11,30 @@ public enum MovementActionType
 {
     InstantRotateTowardsPlayer
 }
+
+[System.Serializable]
+public struct ModulatorProperties
+{
+    public float amplitude;
+    public float frequency;
+    public float lift;
+    public float offset;
+}
+
+public enum RotationModulationType
+{
+    Sin,
+    Cos
+}
+
+[System.Serializable]
+public struct ModulatorEntry
+{
+    public RotationModulationType modulationType;
+    public ModulatorProperties waveProperties;
+}
+
+
 
 namespace Projectile
 {
@@ -28,6 +54,10 @@ namespace Projectile
         [SerializeField]
         private List<MovementEvent> events;
         MovementEventActions eventActions = new MovementEventActions();
+
+        [SerializeField]
+        private List<ModulatorEntry> modulatorFunctionsList;
+
 
         private void Start()
         {
@@ -80,6 +110,16 @@ namespace Projectile
 
 
             return false;
+        }
+
+        private void ApplyRotationModulators()
+        {
+            return;
+        }
+
+        private void CalculateModulationStrength()
+        {
+
         }
 
         private bool CheckEvents()
