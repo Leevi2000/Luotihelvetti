@@ -73,7 +73,7 @@ public class ProjectileMovement : MonoBehaviour
         float targetZRotation = Mathf.Atan2(deltaY, deltaX) * Mathf.Rad2Deg + rotationOffset;
         int direction = eventActions.CalculateRotateDirection(gameObject.transform.eulerAngles.z, targetZRotation);
 
-        float speedMultiplier = (100)/(Mathf.Pow(Vector2.Distance(gameObject.transform.position, targetObj.transform.position) * (forwardSpeed/2), 8/7));
+        float speedMultiplier = (100)/(Mathf.Pow(Vector2.Distance(gameObject.transform.position, targetObj.transform.position) * Mathf.Pow(forwardSpeed, 1/4), 1));
         gameObject.transform.Rotate(0f, 0f, direction * speedMultiplier * Time.fixedDeltaTime);
 
 
