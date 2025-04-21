@@ -17,15 +17,18 @@ namespace Projectile
     public class ProjectileMovement : MonoBehaviour
     {
         // General Properties for movement
-        public float forwardSpeed = 2f;
-        public float frequency = 2f;
-        public float amplitude = 0.5f;
-        public float basicRotationSpeed = 0f;
-        public bool homing = false;
+        [SerializeField] private float forwardSpeed = 2f;
+        [SerializeField] private float frequency = 2f;
+        [SerializeField] private float amplitude = 0.5f;
+        [SerializeField] private float basicRotationSpeed = 0f;
+        [SerializeField] private bool homing = false;
+        [SerializeField] private float homingStrengthMultiplier = 1;
+
+        [SerializeField] private bool useModulators = true;
 
         private float time = 0f;
 
-        public GameObject targetObj;
+        [SerializeField] private GameObject targetObj;
 
         [SerializeField]
         private List<MovementEvent> events;
@@ -96,7 +99,7 @@ namespace Projectile
             float targetZRotation = Mathf.Atan2(deltaY, deltaX) * Mathf.Rad2Deg + rotationOffset;
             int direction = ProjectileOperations.CalculateRotateDirection(gameObject.transform.eulerAngles.z, targetZRotation);
 
-            float speedMultiplier = (100) / (Mathf.Pow(Vector2.Distance(gameObject.transform.position, targetObj.transform.position) * Mathf.Pow(forwardSpeed, 1 / 4), 1));
+            float speedMultiplier = (100 * homingStrengthMultiplier) / (Mathf.Pow(Vector2.Distance(gameObject.transform.position, targetObj.transform.position) * Mathf.Pow(forwardSpeed, 1 / 4), 1));
             gameObject.transform.Rotate(0f, 0f, direction * speedMultiplier * Time.fixedDeltaTime);
 
 
