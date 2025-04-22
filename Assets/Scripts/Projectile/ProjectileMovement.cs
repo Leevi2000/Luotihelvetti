@@ -25,6 +25,7 @@ namespace Projectile
         [SerializeField] private float homingStrengthMultiplier = 1;
 
         [SerializeField] private bool useModulators = true;
+        [SerializeField] private bool reverseModulation = false;
 
         private float time = 0f;
 
@@ -37,6 +38,7 @@ namespace Projectile
         [SerializeField]
         private List<Modulator.ModulatorEntry> modulatorFunctionsList;
 
+        public float ForwardSpeed { get => forwardSpeed; set => forwardSpeed = value; }
 
         private void Start()
         {
@@ -81,10 +83,13 @@ namespace Projectile
 
         private void ApplyRotation()
         {
+            int directionMultiplier = 1;
+            if (reverseModulation)
+                directionMultiplier = -1;
             float rotationModifier = 1;
             if (modulatorFunctionsList.Count > 0)
             {
-                rotationModifier = Modulator.SumOfModulatorValuesAt(modulatorFunctionsList, time);
+                rotationModifier = directionMultiplier * Modulator.SumOfModulatorValuesAt(modulatorFunctionsList, time);
             }
 
             transform.Rotate(0, 0, basicRotationSpeed * rotationModifier * Time.deltaTime);

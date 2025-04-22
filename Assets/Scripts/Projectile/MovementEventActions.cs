@@ -7,7 +7,6 @@ namespace Projectile
 {
     public class MovementEventActions
     {
-
         /// <summary>
         /// Rotates given object towards target an set amount per iteration. Returns true when rotated towards target.
         /// </summary>
