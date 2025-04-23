@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 /// <summary>
 /// Enums contain set of possible actions events can have
@@ -9,91 +12,142 @@ public enum MovementActionType
     InstantRotateTowardsPlayer
 }
 
-public class ProjectileMovement : MonoBehaviour
+namespace Projectile
 {
-    // General Properties for movement
-    public float forwardSpeed = 2f;
-    public float frequency = 2f;
-    public float amplitude = 0.5f;
-    public float basicRotationSpeed = 0f;
-
-    private float time = 0f;
-
-    public GameObject targetObj;
-
-    [SerializeField]
-    private List<MovementEvent> events;
-    MovementEventActions eventActions = new MovementEventActions();
-
-    private bool movementLock = false;
-
-    private void Start()
+    public class ProjectileMovement : MonoBehaviour
     {
-        if (targetObj == null)
-            targetObj = GameObject.FindGameObjectWithTag("Player");
-    }
+        // General Properties for movement
+        [SerializeField] private float forwardSpeed = 2f;
+        [SerializeField] private float frequency = 2f;
+        [SerializeField] private float amplitude = 0.5f;
+        [SerializeField] private float basicRotationSpeed = 0f;
+        [SerializeField] private bool homing = false;
+        [SerializeField] private float homingStrengthMultiplier = 1;
 
-    void FixedUpdate()
-    {
-        if (!CheckEvents())
+        [SerializeField] private bool useModulators = true;
+        [SerializeField] private bool reverseModulation = false;
+
+        private float time = 0f;
+
+        [SerializeField] private GameObject targetObj;
+
+        [SerializeField]
+        private List<MovementEvent> events;
+        MovementEventActions eventActions = new MovementEventActions();
+
+        [SerializeField]
+        private List<Modulator.ModulatorEntry> modulatorFunctionsList;
+
+        public float ForwardSpeed { get => forwardSpeed; set => forwardSpeed = value; }
+
+        private void Start()
         {
-            MoveForward();
-            BasicRotation();
+            if (targetObj == null)
+                targetObj = GameObject.FindGameObjectWithTag("Player");
         }
-    }
 
-    private void MoveForward()
-    {
-        time += Time.deltaTime;
-
-        Vector3 forwardMovement = transform.up * forwardSpeed * Time.deltaTime;
-
-        float verticalOffset = Mathf.Sin(time * frequency) * amplitude;
-        Vector3 localOffset = transform.right * verticalOffset;
-
-        transform.position += forwardMovement + localOffset * Time.deltaTime;
-    }
-
-    private void BasicRotation()
-    {
-        transform.Rotate(0, 0, basicRotationSpeed * Time.deltaTime);
-    }
-
-    private bool CheckEvents()
-    {
-        bool eventsRunning = false;
-        foreach (var ev in events)
+        void FixedUpdate()
         {
-            ev.ProcessEvent();
-            if (ev.runMethods)
+            UpdateTime();
+            if (!CheckEvents())
             {
-                ExecuteEvents(ev.methodsToRun, out ev.runMethods);
-                eventsRunning = true;
-            }    
+                MoveForward();
+                BasicRotation();
+            }
         }
-        return eventsRunning;
+
+        private void UpdateTime()
+        {
+            time += Time.deltaTime;
+        }
+        private void MoveForward()
+        {
+            Vector3 forwardMovement = transform.up * forwardSpeed * Time.deltaTime;
+
+            float verticalOffset = Mathf.Sin(time * frequency) * amplitude;
+            Vector3 localOffset = transform.right * verticalOffset;
+
+            transform.position += forwardMovement + localOffset * Time.deltaTime;
+        }
+
+        private void BasicRotation()
+        {
+            if (homing)
+            {
+                HomeTowardsTarget();
+                ApplyRotation();
+            }
+            else
+                ApplyRotation();
+        }
+
+        private void ApplyRotation()
+        {
+            int directionMultiplier = 1;
+            if (reverseModulation)
+                directionMultiplier = -1;
+            float rotationModifier = 1;
+            if (modulatorFunctionsList.Count > 0)
+            {
+                rotationModifier = directionMultiplier * Modulator.SumOfModulatorValuesAt(modulatorFunctionsList, time);
+            }
+
+            transform.Rotate(0, 0, basicRotationSpeed * rotationModifier * Time.deltaTime);
+        }
+
+        private bool HomeTowardsTarget()
+        {
+            float rotationOffset = -270;
+
+            float deltaX, deltaY;
+            ProjectileOperations.CalculateDeltaCoordinates(gameObject.transform, targetObj.transform, out deltaX, out deltaY);
+            float targetZRotation = Mathf.Atan2(deltaY, deltaX) * Mathf.Rad2Deg + rotationOffset;
+            int direction = ProjectileOperations.CalculateRotateDirection(gameObject.transform.eulerAngles.z, targetZRotation);
+
+            float speedMultiplier = (100 * homingStrengthMultiplier) / (Mathf.Pow(Vector2.Distance(gameObject.transform.position, targetObj.transform.position) * Mathf.Pow(forwardSpeed, 1 / 4), 1));
+            gameObject.transform.Rotate(0f, 0f, direction * speedMultiplier * Time.fixedDeltaTime);
+
+
+            return false;
+        }
+
+        private bool CheckEvents()
+        {
+            bool eventsRunning = false;
+            foreach (var ev in events)
+            {
+                ev.ProcessEvent();
+                if (ev.runMethods)
+                {
+                    ExecuteEvents(ev.methodsToRun, out ev.runMethods);
+                    eventsRunning = true;
+                }
+            }
+            return eventsRunning;
+        }
+
+        private void ExecuteEvents(List<MovementActionType> actionTypes, out bool notAllEventsCompleted)
+        {
+            notAllEventsCompleted = false;
+            bool eventFinished = true;
+            foreach (var actionType in actionTypes)
+            {
+                ExecuteEvent(actionType, out eventFinished);
+                if (!eventFinished)
+                    notAllEventsCompleted = true;
+            }
+        }
+
+        private void ExecuteEvent(MovementActionType actionType, out bool completed)
+        {
+            completed = false;
+            switch (actionType)
+            {
+                case MovementActionType.InstantRotateTowardsPlayer:
+                    completed = eventActions.InstantRotateTowardsPlayer(this.gameObject, targetObj);
+                    break;
+            }
+        }
     }
 
-    private void ExecuteEvents(List<MovementActionType> actionTypes, out bool notAllEventsCompleted)
-    {
-        notAllEventsCompleted = false;
-        bool eventFinished = true;
-        foreach (var actionType in actionTypes)
-        {
-            ExecuteEvent(actionType, out eventFinished);
-            if (!eventFinished)
-                notAllEventsCompleted = true;
-        }
-    }
-
-    private void ExecuteEvent(MovementActionType actionType, out bool completed)
-    {
-        completed = false;
-        switch (actionType)
-        {
-            case MovementActionType.InstantRotateTowardsPlayer:
-                completed = eventActions.InstantRotateTowardsPlayer(this.gameObject, targetObj);
-                break;
-        }
-    }
 }
