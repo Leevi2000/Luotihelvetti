@@ -270,8 +270,8 @@ MonoBehaviour:
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 33346
+    ctime0: 11758
+    ctime1: 32768
     ctime2: 48380
     ctime3: 0
     ctime4: 0
@@ -440,8 +440,8 @@ MonoBehaviour:
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 33346
+    ctime0: 11758
+    ctime1: 32768
     ctime2: 48380
     ctime3: 0
     ctime4: 0
@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b83ec1556da6534eaab3e1b6f5e3fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloneCycles: 200
+  cloneCycles: 500
   speedIncrement: 0.1
 --- !u!4 &152705331
 Transform:
@@ -1006,8 +1006,8 @@ MonoBehaviour:
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 33346
+    ctime0: 11758
+    ctime1: 32768
     ctime2: 48380
     ctime3: 0
     ctime4: 0
@@ -1176,8 +1176,8 @@ MonoBehaviour:
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 33346
+    ctime0: 11758
+    ctime1: 32768
     ctime2: 48380
     ctime3: 0
     ctime4: 0
@@ -1346,8 +1346,8 @@ MonoBehaviour:
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 33346
+    ctime0: 11758
+    ctime1: 32768
     ctime2: 48380
     ctime3: 0
     ctime4: 0
@@ -1516,8 +1516,8 @@ MonoBehaviour:
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 33346
+    ctime0: 11758
+    ctime1: 32768
     ctime2: 48380
     ctime3: 0
     ctime4: 0
@@ -1686,8 +1686,8 @@ MonoBehaviour:
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 33346
+    ctime0: 11758
+    ctime1: 32768
     ctime2: 48380
     ctime3: 0
     ctime4: 0
@@ -1856,8 +1856,8 @@ MonoBehaviour:
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 33346
+    ctime0: 11758
+    ctime1: 32768
     ctime2: 48380
     ctime3: 0
     ctime4: 0

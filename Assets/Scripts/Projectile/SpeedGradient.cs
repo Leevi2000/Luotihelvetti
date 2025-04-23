@@ -25,7 +25,7 @@ public class SpeedGradient : MonoBehaviour
 
     void Update()
     {
-        float deltaTime = Time.deltaTime;
+        float deltaTime = Time.fixedDeltaTime;
 
         Vector3 currentPosition = transform.position;
         Vector3 currentVelocity = (currentPosition - previousPosition) / deltaTime;
