@@ -39,6 +39,7 @@ namespace Projectile
         private List<Modulator.ModulatorEntry> modulatorFunctionsList;
 
         public float ForwardSpeed { get => forwardSpeed; set => forwardSpeed = value; }
+        public float BasicRotationSpeed { get => basicRotationSpeed; set => basicRotationSpeed = value; }
 
         private void Start()
         {

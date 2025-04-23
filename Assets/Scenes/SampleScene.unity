@@ -150,9 +150,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57935686}
   m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: 1.56, y: -0.01, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.791, y: -0.001, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 152705331}
   m_RootOrder: 3
@@ -169,32 +169,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6a8746514e2b44dbb4370423f5fcbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 3
+  forwardSpeed: 1
   frequency: 0
   amplitude: 0
   basicRotationSpeed: 10
-  homing: 1
-  homingStrengthMultiplier: 5
+  homing: 0
+  homingStrengthMultiplier: 0.2
   useModulators: 1
   reverseModulation: 1
   targetObj: {fileID: 0}
   events:
-  - timer_max: 5
-    eventQuantity: 3
+  - timer_max: 1
+    eventQuantity: 2
     runMethods: 0
-    methodsToRun: 
+    methodsToRun: 00000000
   modulatorFunctionsList:
-  - modulationType: 0
-    waveProperties:
-      amplitude: 1
-      frequency: 2
-      lift: 3
-      offset: 0
   - modulationType: 1
     waveProperties:
-      amplitude: 2
-      frequency: 1
-      lift: 0
+      amplitude: 10
+      frequency: 2
+      lift: 3
       offset: 0
 --- !u!212 &57935689
 SpriteRenderer:
@@ -262,26 +256,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0.8089566, a: 1}
-    key1: {r: 0.2687344, g: 0.77067703, b: 0.9339623, a: 0.6901961}
-    key2: {r: 0.039443493, g: 0, b: 1, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0, g: 0.73688674, b: 1, a: 1}
+    key1: {r: 1, g: 0.3254717, b: 0.8780974, a: 1}
+    key2: {r: 1, g: 0.3254902, b: 0.8784314, a: 1}
+    key3: {r: 0, g: 0.7372549, b: 1, a: 1}
+    key4: {r: 0.49066362, g: 0.8745098, b: 0.3960784, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 11758
-    ctime1: 32768
-    ctime2: 48380
-    ctime3: 0
-    ctime4: 0
+    ctime0: 0
+    ctime1: 13878
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 54548
     ctime5: 0
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 64764
-    atime2: 0
-    atime3: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 65535
     atime4: 0
     atime5: 0
     atime6: 0
@@ -289,9 +283,9 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  maxAcceleration: 12000
-  minAcceleration: 1500
-  smoothFactor: 0.1
+  maxAcceleration: 50
+  minAcceleration: 10
+  smoothFactor: 0.01
   smoothedAcceleration: 0
 --- !u!1 &58128702
 GameObject:
@@ -320,9 +314,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58128702}
   m_LocalRotation: {x: 0, y: 0, z: 0.92387956, w: 0.38268343}
-  m_LocalPosition: {x: -1.15, y: -1.01, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.586, y: -0.5909, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 152705331}
   m_RootOrder: 6
@@ -339,32 +333,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6a8746514e2b44dbb4370423f5fcbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 3
+  forwardSpeed: 1
   frequency: 0
   amplitude: 0
   basicRotationSpeed: 10
-  homing: 1
-  homingStrengthMultiplier: 5
+  homing: 0
+  homingStrengthMultiplier: 0.2
   useModulators: 1
   reverseModulation: 1
   targetObj: {fileID: 0}
   events:
-  - timer_max: 5
-    eventQuantity: 3
+  - timer_max: 1
+    eventQuantity: 2
     runMethods: 0
-    methodsToRun: 
+    methodsToRun: 00000000
   modulatorFunctionsList:
-  - modulationType: 0
-    waveProperties:
-      amplitude: 1
-      frequency: 2
-      lift: 3
-      offset: 0
   - modulationType: 1
     waveProperties:
-      amplitude: 2
-      frequency: 1
-      lift: 0
+      amplitude: 10
+      frequency: 2
+      lift: 3
       offset: 0
 --- !u!212 &58128705
 SpriteRenderer:
@@ -432,26 +420,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0.8089566, a: 1}
-    key1: {r: 0.2687344, g: 0.77067703, b: 0.9339623, a: 0.6901961}
-    key2: {r: 0.039443493, g: 0, b: 1, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0, g: 0.73688674, b: 1, a: 1}
+    key1: {r: 1, g: 0.3254717, b: 0.8780974, a: 1}
+    key2: {r: 1, g: 0.3254902, b: 0.8784314, a: 1}
+    key3: {r: 0, g: 0.7372549, b: 1, a: 1}
+    key4: {r: 0.49066362, g: 0.8745098, b: 0.3960784, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 11758
-    ctime1: 32768
-    ctime2: 48380
-    ctime3: 0
-    ctime4: 0
+    ctime0: 0
+    ctime1: 13878
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 54548
     ctime5: 0
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 64764
-    atime2: 0
-    atime3: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 65535
     atime4: 0
     atime5: 0
     atime6: 0
@@ -459,9 +447,9 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  maxAcceleration: 12000
-  minAcceleration: 1500
-  smoothFactor: 0.1
+  maxAcceleration: 50
+  minAcceleration: 10
+  smoothFactor: 0.01
   smoothedAcceleration: 0
 --- !u!1 &152705329
 GameObject:
@@ -492,8 +480,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b83ec1556da6534eaab3e1b6f5e3fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloneCycles: 500
-  speedIncrement: 0.1
+  cloneCycles: 40
+  speedIncrement: 0.01
+  rotateIncement: 0.2
 --- !u!4 &152705331
 Transform:
   m_ObjectHideFlags: 0
@@ -502,9 +491,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152705329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.14, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1600035408}
   - {fileID: 1024664307}
@@ -604,7 +593,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 75.9
+  orthographic size: 6.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -837,7 +826,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680748202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.143, y: 0.002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -886,9 +875,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798641436}
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: -1.06, y: 1.03, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.586, y: 0.5909, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 152705331}
   m_RootOrder: 4
@@ -905,32 +894,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6a8746514e2b44dbb4370423f5fcbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 3
+  forwardSpeed: 1
   frequency: 0
   amplitude: 0
   basicRotationSpeed: 10
-  homing: 1
-  homingStrengthMultiplier: 5
+  homing: 0
+  homingStrengthMultiplier: 0.2
   useModulators: 1
   reverseModulation: 0
   targetObj: {fileID: 0}
   events:
-  - timer_max: 5
-    eventQuantity: 3
+  - timer_max: 1
+    eventQuantity: 2
     runMethods: 0
-    methodsToRun: 
+    methodsToRun: 00000000
   modulatorFunctionsList:
-  - modulationType: 0
-    waveProperties:
-      amplitude: 1
-      frequency: 2
-      lift: 3
-      offset: 0
   - modulationType: 1
     waveProperties:
-      amplitude: 2
-      frequency: 1
-      lift: 0
+      amplitude: 10
+      frequency: 2
+      lift: 3
       offset: 0
 --- !u!212 &798641439
 SpriteRenderer:
@@ -998,26 +981,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0.8089566, a: 1}
-    key1: {r: 0.2687344, g: 0.77067703, b: 0.9339623, a: 0.6901961}
-    key2: {r: 0.039443493, g: 0, b: 1, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0, g: 0.73688674, b: 1, a: 1}
+    key1: {r: 1, g: 0.3254717, b: 0.8780974, a: 1}
+    key2: {r: 1, g: 0.3254902, b: 0.8784314, a: 1}
+    key3: {r: 0, g: 0.7372549, b: 1, a: 1}
+    key4: {r: 0.49066362, g: 0.8745098, b: 0.3960784, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 11758
-    ctime1: 32768
-    ctime2: 48380
-    ctime3: 0
-    ctime4: 0
+    ctime0: 0
+    ctime1: 13878
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 54548
     ctime5: 0
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 64764
-    atime2: 0
-    atime3: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 65535
     atime4: 0
     atime5: 0
     atime6: 0
@@ -1025,9 +1008,9 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  maxAcceleration: 12000
-  minAcceleration: 1500
-  smoothFactor: 0.1
+  maxAcceleration: 50
+  minAcceleration: 10
+  smoothFactor: 0.01
   smoothedAcceleration: 0
 --- !u!1 &1024664306
 GameObject:
@@ -1056,9 +1039,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024664306}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.04, y: -1.56, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.005, y: -0.7858, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 152705331}
   m_RootOrder: 1
@@ -1075,32 +1058,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6a8746514e2b44dbb4370423f5fcbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 3
+  forwardSpeed: 1
   frequency: 0
   amplitude: 0
   basicRotationSpeed: 10
-  homing: 1
-  homingStrengthMultiplier: 5
+  homing: 0
+  homingStrengthMultiplier: 0.2
   useModulators: 1
   reverseModulation: 0
   targetObj: {fileID: 0}
   events:
-  - timer_max: 5
-    eventQuantity: 3
+  - timer_max: 1
+    eventQuantity: 2
     runMethods: 0
-    methodsToRun: 
+    methodsToRun: 00000000
   modulatorFunctionsList:
-  - modulationType: 0
-    waveProperties:
-      amplitude: 1
-      frequency: 2
-      lift: 3
-      offset: 0
   - modulationType: 1
     waveProperties:
-      amplitude: 2
-      frequency: 1
-      lift: 0
+      amplitude: 10
+      frequency: 2
+      lift: 3
       offset: 0
 --- !u!212 &1024664309
 SpriteRenderer:
@@ -1168,26 +1145,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0.8089566, a: 1}
-    key1: {r: 0.2687344, g: 0.77067703, b: 0.9339623, a: 0.6901961}
-    key2: {r: 0.039443493, g: 0, b: 1, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0, g: 0.73688674, b: 1, a: 1}
+    key1: {r: 1, g: 0.3254717, b: 0.8780974, a: 1}
+    key2: {r: 1, g: 0.3254902, b: 0.8784314, a: 1}
+    key3: {r: 0, g: 0.7372549, b: 1, a: 1}
+    key4: {r: 0.49066362, g: 0.8745098, b: 0.3960784, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 11758
-    ctime1: 32768
-    ctime2: 48380
-    ctime3: 0
-    ctime4: 0
+    ctime0: 0
+    ctime1: 13878
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 54548
     ctime5: 0
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 64764
-    atime2: 0
-    atime3: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 65535
     atime4: 0
     atime5: 0
     atime6: 0
@@ -1195,9 +1172,9 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  maxAcceleration: 12000
-  minAcceleration: 1500
-  smoothFactor: 0.1
+  maxAcceleration: 50
+  minAcceleration: 10
+  smoothFactor: 0.01
   smoothedAcceleration: 0
 --- !u!1 &1143810432
 GameObject:
@@ -1226,9 +1203,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143810432}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.57, y: 0.01, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.785, y: -0.001, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 152705331}
   m_RootOrder: 2
@@ -1245,32 +1222,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6a8746514e2b44dbb4370423f5fcbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 3
+  forwardSpeed: 1
   frequency: 0
   amplitude: 0
   basicRotationSpeed: 10
-  homing: 1
-  homingStrengthMultiplier: 5
+  homing: 0
+  homingStrengthMultiplier: 0.2
   useModulators: 1
   reverseModulation: 1
   targetObj: {fileID: 0}
   events:
-  - timer_max: 5
-    eventQuantity: 3
+  - timer_max: 1
+    eventQuantity: 2
     runMethods: 0
-    methodsToRun: 
+    methodsToRun: 00000000
   modulatorFunctionsList:
-  - modulationType: 0
-    waveProperties:
-      amplitude: 1
-      frequency: 2
-      lift: 3
-      offset: 0
   - modulationType: 1
     waveProperties:
-      amplitude: 2
-      frequency: 1
-      lift: 0
+      amplitude: 10
+      frequency: 2
+      lift: 3
       offset: 0
 --- !u!212 &1143810435
 SpriteRenderer:
@@ -1338,26 +1309,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0.8089566, a: 1}
-    key1: {r: 0.2687344, g: 0.77067703, b: 0.9339623, a: 0.6901961}
-    key2: {r: 0.039443493, g: 0, b: 1, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0, g: 0.73688674, b: 1, a: 1}
+    key1: {r: 1, g: 0.3254717, b: 0.8780974, a: 1}
+    key2: {r: 1, g: 0.3254902, b: 0.8784314, a: 1}
+    key3: {r: 0, g: 0.7372549, b: 1, a: 1}
+    key4: {r: 0.49066362, g: 0.8745098, b: 0.3960784, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 11758
-    ctime1: 32768
-    ctime2: 48380
-    ctime3: 0
-    ctime4: 0
+    ctime0: 0
+    ctime1: 13878
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 54548
     ctime5: 0
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 64764
-    atime2: 0
-    atime3: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 65535
     atime4: 0
     atime5: 0
     atime6: 0
@@ -1365,9 +1336,9 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  maxAcceleration: 12000
-  minAcceleration: 1500
-  smoothFactor: 0.1
+  maxAcceleration: 50
+  minAcceleration: 10
+  smoothFactor: 0.01
   smoothedAcceleration: 0
 --- !u!1 &1436420299
 GameObject:
@@ -1396,9 +1367,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436420299}
   m_LocalRotation: {x: 0, y: -0, z: 0.9238796, w: -0.38268325}
-  m_LocalPosition: {x: 1.06, y: -1.17, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.5959, y: -0.5909, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 152705331}
   m_RootOrder: 5
@@ -1415,32 +1386,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6a8746514e2b44dbb4370423f5fcbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 3
+  forwardSpeed: 1
   frequency: 0
   amplitude: 0
   basicRotationSpeed: 10
-  homing: 1
-  homingStrengthMultiplier: 5
+  homing: 0
+  homingStrengthMultiplier: 0.2
   useModulators: 1
   reverseModulation: 0
   targetObj: {fileID: 0}
   events:
-  - timer_max: 5
-    eventQuantity: 3
+  - timer_max: 1
+    eventQuantity: 2
     runMethods: 0
-    methodsToRun: 
+    methodsToRun: 00000000
   modulatorFunctionsList:
-  - modulationType: 0
-    waveProperties:
-      amplitude: 1
-      frequency: 2
-      lift: 3
-      offset: 0
   - modulationType: 1
     waveProperties:
-      amplitude: 2
-      frequency: 1
-      lift: 0
+      amplitude: 10
+      frequency: 2
+      lift: 3
       offset: 0
 --- !u!212 &1436420302
 SpriteRenderer:
@@ -1508,26 +1473,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0.8089566, a: 1}
-    key1: {r: 0.2687344, g: 0.77067703, b: 0.9339623, a: 0.6901961}
-    key2: {r: 0.039443493, g: 0, b: 1, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0, g: 0.73688674, b: 1, a: 1}
+    key1: {r: 1, g: 0.3254717, b: 0.8780974, a: 1}
+    key2: {r: 1, g: 0.3254902, b: 0.8784314, a: 1}
+    key3: {r: 0, g: 0.7372549, b: 1, a: 1}
+    key4: {r: 0.49066362, g: 0.8745098, b: 0.3960784, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 11758
-    ctime1: 32768
-    ctime2: 48380
-    ctime3: 0
-    ctime4: 0
+    ctime0: 0
+    ctime1: 13878
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 54548
     ctime5: 0
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 64764
-    atime2: 0
-    atime3: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 65535
     atime4: 0
     atime5: 0
     atime6: 0
@@ -1535,9 +1500,9 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  maxAcceleration: 12000
-  minAcceleration: 1500
-  smoothFactor: 0.1
+  maxAcceleration: 50
+  minAcceleration: 10
+  smoothFactor: 0.01
   smoothedAcceleration: 0
 --- !u!1 &1543025617
 GameObject:
@@ -1566,9 +1531,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543025617}
   m_LocalRotation: {x: 0, y: -0, z: 0.3826836, w: -0.92387944}
-  m_LocalPosition: {x: 1.05, y: 1.01, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.5959, y: 0.5909, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 152705331}
   m_RootOrder: 7
@@ -1585,32 +1550,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6a8746514e2b44dbb4370423f5fcbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 3
+  forwardSpeed: 1
   frequency: 0
   amplitude: 0
   basicRotationSpeed: 10
-  homing: 1
-  homingStrengthMultiplier: 5
+  homing: 0
+  homingStrengthMultiplier: 0.2
   useModulators: 1
   reverseModulation: 1
   targetObj: {fileID: 0}
   events:
-  - timer_max: 5
-    eventQuantity: 3
+  - timer_max: 1
+    eventQuantity: 2
     runMethods: 0
-    methodsToRun: 
+    methodsToRun: 00000000
   modulatorFunctionsList:
-  - modulationType: 0
-    waveProperties:
-      amplitude: 1
-      frequency: 2
-      lift: 3
-      offset: 0
   - modulationType: 1
     waveProperties:
-      amplitude: 2
-      frequency: 1
-      lift: 0
+      amplitude: 10
+      frequency: 2
+      lift: 3
       offset: 0
 --- !u!212 &1543025620
 SpriteRenderer:
@@ -1678,26 +1637,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0.8089566, a: 1}
-    key1: {r: 0.2687344, g: 0.77067703, b: 0.9339623, a: 0.6901961}
-    key2: {r: 0.039443493, g: 0, b: 1, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0, g: 0.73688674, b: 1, a: 1}
+    key1: {r: 1, g: 0.3254717, b: 0.8780974, a: 1}
+    key2: {r: 1, g: 0.3254902, b: 0.8784314, a: 1}
+    key3: {r: 0, g: 0.7372549, b: 1, a: 1}
+    key4: {r: 0.49066362, g: 0.8745098, b: 0.3960784, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 11758
-    ctime1: 32768
-    ctime2: 48380
-    ctime3: 0
-    ctime4: 0
+    ctime0: 0
+    ctime1: 13878
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 54548
     ctime5: 0
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 64764
-    atime2: 0
-    atime3: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 65535
     atime4: 0
     atime5: 0
     atime6: 0
@@ -1705,9 +1664,9 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  maxAcceleration: 12000
-  minAcceleration: 1500
-  smoothFactor: 0.1
+  maxAcceleration: 50
+  minAcceleration: 10
+  smoothFactor: 0.01
   smoothedAcceleration: 0
 --- !u!1 &1600035407
 GameObject:
@@ -1736,9 +1695,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600035407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 1.51, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.004999198, y: 0.789, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 152705331}
   m_RootOrder: 0
@@ -1755,32 +1714,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6a8746514e2b44dbb4370423f5fcbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 3
+  forwardSpeed: 1
   frequency: 0
   amplitude: 0
   basicRotationSpeed: 10
-  homing: 1
-  homingStrengthMultiplier: 5
+  homing: 0
+  homingStrengthMultiplier: 0.2
   useModulators: 1
   reverseModulation: 0
   targetObj: {fileID: 0}
   events:
-  - timer_max: 5
-    eventQuantity: 3
+  - timer_max: 1
+    eventQuantity: 2
     runMethods: 0
-    methodsToRun: 
+    methodsToRun: 00000000
   modulatorFunctionsList:
-  - modulationType: 0
-    waveProperties:
-      amplitude: 1
-      frequency: 2
-      lift: 3
-      offset: 0
   - modulationType: 1
     waveProperties:
-      amplitude: 2
-      frequency: 1
-      lift: 0
+      amplitude: 10
+      frequency: 2
+      lift: 3
       offset: 0
 --- !u!212 &1600035410
 SpriteRenderer:
@@ -1848,26 +1801,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0.8089566, a: 1}
-    key1: {r: 0.2687344, g: 0.77067703, b: 0.9339623, a: 0.6901961}
-    key2: {r: 0.039443493, g: 0, b: 1, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0, g: 0.73688674, b: 1, a: 1}
+    key1: {r: 1, g: 0.3254717, b: 0.8780974, a: 1}
+    key2: {r: 1, g: 0.3254902, b: 0.8784314, a: 1}
+    key3: {r: 0, g: 0.7372549, b: 1, a: 1}
+    key4: {r: 0.49066362, g: 0.8745098, b: 0.3960784, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 11758
-    ctime1: 32768
-    ctime2: 48380
-    ctime3: 0
-    ctime4: 0
+    ctime0: 0
+    ctime1: 13878
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 54548
     ctime5: 0
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 64764
-    atime2: 0
-    atime3: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 65535
     atime4: 0
     atime5: 0
     atime6: 0
@@ -1875,9 +1828,9 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  maxAcceleration: 12000
-  minAcceleration: 1500
-  smoothFactor: 0.1
+  maxAcceleration: 50
+  minAcceleration: 10
+  smoothFactor: 0.01
   smoothedAcceleration: 0
 --- !u!1 &1877493928
 GameObject:
@@ -1954,7 +1907,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

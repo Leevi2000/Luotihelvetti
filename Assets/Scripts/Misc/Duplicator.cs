@@ -8,6 +8,7 @@ public class Duplicator : MonoBehaviour
 {
     [SerializeField] private int cloneCycles = 10;
     [SerializeField] private float speedIncrement = 0.1f;
+    [SerializeField] private float rotateIncement = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -15,15 +16,19 @@ public class Duplicator : MonoBehaviour
         
         var childObjects = GetAllChildGameObjects(gameObject);
         float previousSpeed = childObjects[0].GetComponent<ProjectileMovement>().ForwardSpeed;
+        float previousRotation = childObjects[0].GetComponent<ProjectileMovement>().BasicRotationSpeed;
         for (int i = 0; i < cloneCycles; i++) 
         {
             float increasedSpeed = previousSpeed + speedIncrement;
+            float increasedRotation = previousRotation + rotateIncement;
             foreach (var obj in childObjects)
             {
                 var newObj = Instantiate(obj, obj.transform.position, obj.transform.rotation, obj.transform.parent);
                 newObj.GetComponent<ProjectileMovement>().ForwardSpeed = increasedSpeed;
+                newObj.GetComponent<ProjectileMovement>().BasicRotationSpeed = increasedRotation;
             }
             previousSpeed = increasedSpeed;
+            previousRotation = increasedRotation;
         }
     }
     List<GameObject> GetAllChildGameObjects(GameObject parent)
