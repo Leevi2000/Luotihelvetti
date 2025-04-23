@@ -10,7 +10,7 @@ public class MovementEvent
 {
     public float timer_max;
     private float timer;
-    int eventQuantity = -1;
+    public int eventQuantity = -1;
     public bool runMethods;
     [SerializeField]
     public List<MovementActionType> methodsToRun = new List<MovementActionType>();
@@ -19,7 +19,8 @@ public class MovementEvent
         UpdateTimer();
         if (IsTimerEnded()) 
         {
-            DecreaseQuantity();
+            if (!DecreaseQuantity())
+                return;
             if (eventQuantity != 0)
             {
                 ResetTimer();
@@ -40,10 +41,14 @@ public class MovementEvent
         return false;
     }
 
-    void DecreaseQuantity()
+    bool DecreaseQuantity()
     {
-        if (eventQuantity != -1 || eventQuantity != 0)
+        if (eventQuantity != 0)
+        {
             eventQuantity--;
+            return true;
+        }
+        return false;   
     }
 
     bool ResetTimer()
