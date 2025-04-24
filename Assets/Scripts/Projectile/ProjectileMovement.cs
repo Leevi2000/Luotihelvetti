@@ -114,6 +114,9 @@ namespace Projectile
 
         private bool CheckEvents()
         {
+            if (targetObj == null)
+                return false;
+
             bool eventsRunning = false;
             foreach (var ev in events)
             {
